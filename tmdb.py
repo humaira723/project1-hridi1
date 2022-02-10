@@ -1,6 +1,5 @@
 import requests
 import os
-import random
 from dotenv import find_dotenv, load_dotenv
 
 load_dotenv(find_dotenv())
@@ -25,16 +24,8 @@ def movieInfo(id):
 
     title = data["title"]
     tagline = data["tagline"]
-    genresList = [sub["name"] for sub in data["genres"]]
-    genres = ", ".join(genresList)
+    genres = ", ".join([sub["name"] for sub in data["genres"]])
     image = "https://image.tmdb.org/t/p/w500"+data["poster_path"]
 
     return (title,tagline,genres,image)
-
-#print(movieInfo(493922))
-#movies = response.json()
-#for movie in movies_id:
-    #print(response.json()[movie]["original_title"])
-#for id in movies_id:
-#print(response.json()["original_title"])
 
