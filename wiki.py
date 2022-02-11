@@ -1,33 +1,26 @@
 import requests
 
-from tmdb import movieInfo
+def wiki_link(movie):
+    """
+    fdj
+    """
 
-
-WIKI_URL = "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=info&inprop=url%7Ctalkid"
-
-
-def wikiLink(): #set movie title arg
+    WIKI_URL = "https://en.wikipedia.org/w/api.php"
 
     PARAMS = {
-        "action": "query",
-        "titles": "Albert Einstein",
+        "action": "opensearch",
+        "search": movie,
+        "namespace": "0",
+        "limit": "5",
         "format": "json",
-        "prop": "info",
-        "inprop": "url|talkid",
     }
     response = requests.get(
-        WIKI_URL= WIKI_URL, 
-        params=PARAMS
+        WIKI_URL,
+        PARAMS
     )
 
     data = response.json()
+    first_url = data[3][0]
+    return first_url
 
-    pages = data["query"]["pages"][0]["fullurl"]
-    print(pages)
-   # for k, v in pages.items():
-    #    for l in v["links"]:
-     #       print(l["title"])
-
-    #link = data["links"]
-
-wikiLink()
+#print(wikiLink("Hereditary"))

@@ -5,9 +5,10 @@ html{
 }
 /*
 black : rgb(38,37,36)
-lighter black: rgba(96,93,91,255)
+dark gray: rgba(96,93,91,255)
 gray beige: rgb(147,139,134)
 orange: rgb(202,123,100)
+blue: rgb(32,93,171)
 white: rgb(251,235,227);
 */
 
@@ -17,6 +18,7 @@ body{
     font-family: 'Roboto Condensed', sans-serif;
     /*background: rgb(244,172,146)*/
     background: rgb(202,123,100);
+    background: linear-gradient(350deg, rgba(202,123,100,1) 0%, rgba(202,123,100,1) 46%, rgba(255,210,165,1) 100%);
 }
 
 header{
@@ -64,7 +66,7 @@ header h1{
 .movie_title{
     font-family: 'Josefin Sans', sans-serif;
     font-size: 2.5rem;
-    color: rgb(32,93,171)
+    color: rgb(32,93,171);
 }
 .movie_display{
     height: 370px;
@@ -77,9 +79,8 @@ header h1{
     box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
     border-radius: 2px;
     margin: 0 auto;
-    max-width:100%;
-    max-height:100%;
-
+    max-width: 100%;
+    max-height: 100%;
     object-fit: cover;
 }
 
