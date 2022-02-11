@@ -1,4 +1,5 @@
 # pylint: disable=line-too-long
+import os
 import random
 import flask
 from tmdb import movie_info
@@ -27,4 +28,8 @@ def index():
 
         wiki_link = wiki_link,
     )
-app.run(debug=True)
+app.run(
+    host='0.0.0.0',
+    port=int(os.getenv('PORT', 8080)),
+    debug=True
+    )
