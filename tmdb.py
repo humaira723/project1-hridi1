@@ -1,3 +1,4 @@
+# pylint: disable=line-too-long
 import os
 import requests
 from dotenv import find_dotenv, load_dotenv
@@ -7,23 +8,19 @@ load_dotenv(find_dotenv())
 BASE_URL = "https://api.themoviedb.org/3/movie/"
 IMG_URL = "https://api.themoviedb.org/3/configuration"
 
-#for id in movies_id:
-#    BASE_URL = "https://api.themoviedb.org/3/movie/"+str(id)
-
-def movie_info(id):
+def movie_info(movie_id):
     """
-    function yada yada
+    Function uses TMDB api and requests library to retrieve title, tagline, genres, and an image for movie according to movie_id. If KeyError occurs default values for movie "Hereditary" is set to all variables.
     """
     query_params = {
         "api_key": os.getenv("API_KEY"),
-        "movie_id": id,
+        "movie_id": movie_id,
     }
 
     response = requests.get(
-        BASE_URL+str(id),
+        BASE_URL+str(movie_id),
         params=query_params
     )
-   
     data = response.json()
     try:
         title = data["title"]

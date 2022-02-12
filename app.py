@@ -1,4 +1,5 @@
 # pylint: disable=line-too-long
+# pylint: disable=invalid-envvar-default
 import os
 import random
 import flask
@@ -12,11 +13,11 @@ movies_id = [493922,76341,7326,4348,10315,22538,9428,502033,152601,16869,270303,
 @app.route("/")
 def index():
     """
-    idk
+    Function connects html index page to flask framework; uses variables from python files "tmdb.py" and "wiki.py" to create a dynamic web pages that displays new content after every reload.
     """
     title, tagline, genres, image = movie_info(random.choice(movies_id))
 
-    wiki_link(title)
+    first_url = wiki_link(title)
 
     return flask.render_template(
         "index.html",
@@ -27,6 +28,7 @@ def index():
         image = image,
 
         wiki_link = wiki_link,
+        first_url = first_url,
     )
 app.run(
     host='0.0.0.0',
